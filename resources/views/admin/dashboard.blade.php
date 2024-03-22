@@ -366,6 +366,6 @@
 
         </div>
         <!-- End of Content Wrapper -->
-@include('clients.partials.scroll')
-@include('clients.partials.logoutModal')
+@include('admin.partials.scroll')
+@include('admin.partials.logoutModal')
 @endsection
