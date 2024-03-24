@@ -79,7 +79,7 @@ class TutorialController extends Controller
      */
     public function show(string $slug)
     {
-        $tutorial = Tutorial::with('user', 'category')->where('slug', $slug)->first();
+        $tutorial = Tutorial::with('user', 'topics')->where('slug', $slug)->first();
         if (!$tutorial) {
             return response()->json([
                 'status' => false,
@@ -92,7 +92,7 @@ class TutorialController extends Controller
             'data' => $tutorial
         ], 200);
 
-        
+
     }
 
     /**
