@@ -116,18 +116,25 @@ class TutorialController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'topic_id' => 'required',
+        ]);
+        
         $tutorial = Tutorial::findOrFail($id);
         $slug = \Str::slug($request->title);
         $image = $request->file('image');
-        $fileName = $slug . '.' . $request->file('image')->getClientOriginalExtension();
-        $path =  '/tutorial/' . $fileName;
-
+        
         if ($image) {
-            if (Storage::disk('public')->exists($tutorial->image)) {
-                Storage::disk('public')->delete($tutorial->image);
-            }
+            Storage::disk('public')->exists($tutorial->image);
+            Storage::disk('public')->delete($tutorial->image);
+
+            $extension = $image->getClientOriginalExtension();
+            $fileName = $slug . '.' . $extension;
             $path =  '/tutorial/' . $fileName;
             Storage::disk('public')->put($path, file_get_contents($request->file('image')));
+
             $tutorial->update([
                 'title' => $request->title,
                 'slug' => $slug,
@@ -165,8 +172,16 @@ class TutorialController extends Controller
     }
 
     public function destroy_all(){
-        Tutorial::truncate();
-        return redirect()->back()->with('success', 'All posts deleted successfully');
+        $tutorials = Tutorial::all();
+        foreach ($tutorials as $tutorial) {
+            $path = $tutorial->image;
+            if (Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->delete($path);
+            }
+            $tutorial->delete();
+        }
+
+        return redirect()->back()->with('success', 'All tutorials deleted successfully');
         
 
     }

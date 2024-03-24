@@ -133,14 +133,19 @@ class PostsController extends Controller
         $posts = Posts::findOrFail($id);
 
         $image = $request->file('image');
-        $extFile = $image->getClientOriginalExtension();
         $slug = \Str::slug($request->title);
-        $fileName =$slug . '.' . $extFile;
-        $path =  '/artikel/'. $fileName;
 
-        if($image) {
+
+        if ($image) {
+            
             Storage::disk('public')->delete($posts->image);
+
+            $extFile = $image->getClientOriginalExtension();
+            $fileName = $slug . '.' . $extFile;
+            $path =  '/artikel/' . $fileName;
             Storage::disk('public')->put($path, file_get_contents($image));
+
+
             $posts->update([
                 'title' => $request->title,
                 'slug' => $slug,
@@ -182,7 +187,14 @@ class PostsController extends Controller
     }
 
     public function destroy_all(){
-        Posts::truncate();
+        $posts = Posts::all();
+        foreach ($posts as $post) {
+            $image = $post->image;
+            if (Storage::disk('public')->exists($image)) {
+                Storage::disk('public')->delete($image);
+            }
+            $post->delete();
+        }
         return redirect()->back()->with('success', 'All posts deleted successfully');
     }
 }

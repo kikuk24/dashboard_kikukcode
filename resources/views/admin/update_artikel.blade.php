@@ -57,7 +57,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="keywords" class="text-black form-label">Tags</label>
-                                <textarea name="keywords" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea name="keywords" cols="30" rows="10" class="form-control">{{ $post->keywords }}</textarea>
 
                             </div>
                             <div class="form-group">

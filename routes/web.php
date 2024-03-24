@@ -55,8 +55,9 @@ Route::middleware('auth')->group(function () {
     Route::get('add/tutorial', [TutorialController::class, 'create'])->name('add.tutorial');
     Route::post('/add/tutorial', [TutorialController::class, 'store'])->name('tutorial.store');
     Route::get('/tutorial/edit/{id}', [TutorialController::class, 'edit'])->name('tutorial.edit');
-    Route::put('/tutorial/{id}', [PostsController::class, 'update'])->name('tutorial.update');
+    Route::put('/tutorial/{id}', [TutorialController::class, 'update'])->name('tutorial.update');
     Route::delete('/tutorial/{id}', [TutorialController::class, 'destroy'])->name('tutorial.destroy');
+    Route::delete('/delete_all', [TutorialController::class, 'destroy_all'])->name('tutorial.destroy-all');
 
     // Topic Routes
     Route::get('/topic', [DashboardController::class, 'getTopics'])->name('dashboard.topics');

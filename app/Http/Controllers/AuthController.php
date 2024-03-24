@@ -37,6 +37,7 @@ class AuthController extends Controller
         }
         return redirect('/login')->with('error', 'Login Failed');
     }
+    
     public function logout()
     {
         Auth::logout();

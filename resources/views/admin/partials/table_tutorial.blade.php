@@ -1,7 +1,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h6 class="m-0 font-weight-bold text-primary ">Data Pemasukan</h6>
+            <h6 class="m-0 font-weight-bold text-primary ">Data tutorial</h6>
             <a href="/add/artikel" class="btn btn-info ml-2 mt-2"><i
                     class="fas fa-plus"></i>
                 Tambah</a>
@@ -23,7 +23,13 @@
                     <tfoot>
                         <tr>
                             <th colspan="2">Total</th>
-                            <th colspan="2"></th>
+                            <th colspan="2">
+                                <form action="{{ route('tutorial.destroy-all') }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus semua data ini?')">Delete All</button>
+
+                            </th>
                         </tr>
                     </tfoot>
                     <tbody>

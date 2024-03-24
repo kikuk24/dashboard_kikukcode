@@ -23,7 +23,13 @@
                     <tfoot>
                         <tr>
                             <th colspan="2">Total</th>
-                            <th colspan="2"></th>
+                            <th colspan="2">
+                                <form action="{{ route('posts.destroy-all') }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus semua data ini?')">Delete All</button>
+                            
+                            </form></th>
                         </tr>
                     </tfoot>
                     <tbody>
