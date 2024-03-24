@@ -116,14 +116,6 @@ class TutorialController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'keywords' => 'required',
-            'description' => 'required',
-            'topic_id' => 'required'
-        ]);
-
         $tutorial = Tutorial::findOrFail($id);
         $slug = \Str::slug($request->title);
         $image = $request->file('image');
