@@ -136,16 +136,25 @@ class TutorialController extends Controller
             }
             $path =  '/tutorial/' . $fileName;
             Storage::disk('public')->put($path, file_get_contents($request->file('image')));
+            $tutorial->update([
+                'title' => $request->title,
+                'slug' => $slug,
+                'body' => $request->body,
+                'image' => $path,
+                'keywords' => $request->keywords,
+                'description' => $request->description,
+                'topics_id' => $request->topic_id
+            ]);
+        } else {
+            $tutorial->update([
+                'title' => $request->title,
+                'slug' => $slug,
+                'body' => $request->body,
+                'keywords' => $request->keywords,
+                'description' => $request->description,
+                'topics_id' => $request->topic_id
+            ]);
         }
-        $tutorial->update([
-            'title' => $request->title,
-            'slug' => $slug,
-            'body' => $request->body,
-            'image' => $path,
-            'keywords' => $request->keywords,
-            'description' => $request->description,
-            'topics_id' => $request->topic_id
-        ]);
         return redirect()->route('dashboard.tutorial')->with('success', 'Tutorial updated successfully');
     }
 
