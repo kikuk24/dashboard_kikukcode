@@ -86,6 +86,7 @@ class TutorialController extends Controller
                 'message' => 'Tutorial not found'
             ], 404);
         }
+        $tutorial->increment('views');
         return response()->json([
             'status' => true,
             'message' => 'success',
