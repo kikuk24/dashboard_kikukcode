@@ -77,14 +77,22 @@ class TutorialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        $tutorial = Tutorial::with('topics')->findOrFail($id);
+        $tutorial = Tutorial::with('user', 'category')->where('slug', $slug)->first();
+        if (!$tutorial) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Tutorial not found'
+            ], 404);
+        }
         return response()->json([
             'status' => true,
             'message' => 'success',
             'data' => $tutorial
         ], 200);
+
+        
     }
 
     /**
