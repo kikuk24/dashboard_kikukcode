@@ -113,9 +113,40 @@ class TutorialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tutorial $tutorial)
+    public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'keywords' => 'required',
+            'description' => 'required',
+            'topic_id' => 'required'
+        ]);
+
+        $tutorial = Tutorial::findOrFail($id);
+        $slug = \Str::slug($request->title);
+        $image = $request->file('image');
+        $fileName = $slug . '.' . $request->file('image')->getClientOriginalExtension();
+        $path =  '/tutorial/' . $fileName;
+
+        if ($image) {
+            if (Storage::disk('public')->exists($tutorial->image)) {
+                Storage::disk('public')->delete($tutorial->image);
+            }
+            $path =  '/tutorial/' . $fileName;
+            Storage::disk('public')->put($path, file_get_contents($request->file('image')));
+        }
+        $tutorial->update([
+            'title' => $request->title,
+            'slug' => $slug,
+            'body' => $request->body,
+            'image' => $path,
+            'keywords' => $request->keywords,
+            'description' => $request->description,
+            'topics_id' => $request->topic_id
+        ]);
+        return redirect()->route('dashboard.tutorial')->with('success', 'Tutorial updated successfully');
     }
 
     /**
