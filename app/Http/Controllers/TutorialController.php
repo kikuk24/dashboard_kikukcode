@@ -119,7 +119,6 @@ class TutorialController extends Controller
         $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'keywords' => 'required',
             'description' => 'required',
             'topic_id' => 'required'
