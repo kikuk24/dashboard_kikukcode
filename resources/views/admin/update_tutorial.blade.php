@@ -15,6 +15,7 @@
                 <div class="card shadow mb-4 p-3">
                     <form action={{ route('tutorial.update', $tutorial->id)}} method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         <div class="form-group">
                             <label for="title" class="text-black form-label ">
@@ -38,11 +39,11 @@
                         </div>
                         <div class="form-group">
                             <label for="description" class="text-black form-label">Description</label>
-                            <textarea name="description" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="description" cols="30" rows="10" class="form-control">{{$tutorial->description}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="keywords" class="text-black form-label">Tags</label>
-                            <textarea name="keywords" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="keywords" cols="30" rows="10" class="form-control">{{$tutorial->keywords}}</textarea>
 
                         </div>
                         <div class="form-group">
