@@ -93,7 +93,7 @@
                                         <a class="small" href="t.me/dompetcerdas_bot">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{ route('register') }}" class="small">Create an Account!</a>
+                                        <a href="#" class="small">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>

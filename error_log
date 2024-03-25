@@ -1,0 +1,15 @@
+[23-Mar-2024 00:34:20 Asia/Jakarta] PHP Warning:  require(/home/kikukcod/public_html/dashboard_kikukcode/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/kikukcod/public_html/dashboard_kikukcode/index.php on line 34
+[23-Mar-2024 00:34:20 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Failed opening required '/home/kikukcod/public_html/dashboard_kikukcode/../vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/kikukcod/public_html/dashboard_kikukcode/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kikukcod/public_html/dashboard_kikukcode/index.php on line 34
+[23-Mar-2024 00:34:26 Asia/Jakarta] PHP Warning:  require(/home/kikukcod/public_html/dashboard_kikukcode/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/kikukcod/public_html/dashboard_kikukcode/index.php on line 34
+[23-Mar-2024 00:34:26 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Failed opening required '/home/kikukcod/public_html/dashboard_kikukcode/../vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/kikukcod/public_html/dashboard_kikukcode/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kikukcod/public_html/dashboard_kikukcode/index.php on line 34
+[23-Mar-2024 00:34:29 Asia/Jakarta] PHP Warning:  require(/home/kikukcod/public_html/dashboard_kikukcode/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/kikukcod/public_html/dashboard_kikukcode/index.php on line 34
+[23-Mar-2024 00:34:29 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Failed opening required '/home/kikukcod/public_html/dashboard_kikukcode/../vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/kikukcod/public_html/dashboard_kikukcode/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kikukcod/public_html/dashboard_kikukcode/index.php on line 34
