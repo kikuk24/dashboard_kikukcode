@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/artikel/edit/{id}', [PostsController::class, 'edit'])->name('post.edit');
     Route::put('/artikel/{id}', [PostsController::class, 'update'])->name('posts.update');
     Route::delete('/artikel/{id}', [PostsController::class, 'destroy'])->name('posts.destroy');
-    Route::delete('/delete_all', [PostsController::class, 'destroy_all'])->name('posts.destroy-all');
+    Route::delete('artikel/delete_all', [PostsController::class, 'destroy_all'])->name('posts.destroy-all');
 
     // Category Routes
 
