@@ -20,7 +20,39 @@ class PostsController extends Controller
             'message' => 'success',
             'data' => $posts,
         ], 200);
+    }
 
+    public function getPosts()
+    {
+        $categories = Category::all();
+        $posts = Posts::with('user', 'category')->latest()->paginate(6);
+        $data = [
+            'posts' => $posts,
+            'categories' => $categories
+        ];
+        return view('clients.posts', $data);
+    }
+
+    public function showPost($slug)
+    {
+        $posts = Posts::with('user', 'category')->where('slug', $slug)->first();
+        $data = [
+            'post' => $posts
+        ];
+
+        return view('clients.showposts', $data);
+    }
+
+    public function postsByCategories($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $posts = Posts::with('user', 'category')->where('category_id', $category->id)->latest()->paginate(6);
+        $data = [
+            'category' => $category,
+            'posts' => $posts
+        ];
+        dd($data);
+        return view('clients.posts', $data);
     }
 
     public function postsByCategory($slug)
@@ -57,16 +89,16 @@ class PostsController extends Controller
         $image = $request->file('image');
         $extFile = $request->file('image')->getClientOriginalExtension();
         $slug = \Str::slug($request->title);
-        $fileName =$slug . '.' . $extFile;
-        $path =  '/artikel/'. $fileName;
+        $fileName = $slug . '.' . $extFile;
+        $path =  '/artikel/' . $fileName;
 
         Storage::disk('public')->put($path, file_get_contents($image));
-        
+
         Posts::create([
             'title' => $request->title,
             'slug' => $slug,
             'body' => $request->body,
-            'image' =>$request->file('image')->storeAs('/artikel', $fileName),
+            'image' => $request->file('image')->storeAs('/artikel', $fileName),
             'user_id' => auth()->user()->id,
             'keywords' => $request->keywords,
             'description' => $request->description,
@@ -106,7 +138,7 @@ class PostsController extends Controller
         $posts = Posts::findOrFail($id);
         $user = auth()->user();
         $categories = Category::all();
-        if(!$user){
+        if (!$user) {
             return redirect('/login');
         }
         $data = [
@@ -137,7 +169,7 @@ class PostsController extends Controller
 
 
         if ($image) {
-            
+
             Storage::disk('public')->delete($posts->image);
 
             $extFile = $image->getClientOriginalExtension();
@@ -167,8 +199,6 @@ class PostsController extends Controller
         }
 
         return redirect()->route('dashboard.posts')->with('success', 'Post updated successfully');
-        
-        
     }
 
     /**

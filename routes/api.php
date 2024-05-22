@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MetasController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\TopicsController;
