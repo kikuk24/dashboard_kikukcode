@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title')</title>
-  <meta name="description" content=@yield('description')>
+<meta name="description" content="@yield('description')">
   <meta name="author" content="kikuk code">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-  <meta property="og:title" content=@yield('title')>
-  <meta property="og:description" content=@yield('description')>
-  <meta property="og:image" content=@yield('image')>
+<meta property="og:title" content="@yield('title')">
+  <meta property="og:description" content="@yield('description')">
+  <meta property="og:image" content="@yield('image')">
   <meta property="og:url" content="@yield('url')">
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1477599127787462"
@@ -31,7 +31,7 @@
   }
 </script>
   <link rel="stylesheet" href="{{asset('storage/css/app.css')}}">
-  <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" type="image/x-icon">
+<link rel="shortcut icon" href="{{asset('storage/images/favicon.png')}}" type="image/x-icon">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 

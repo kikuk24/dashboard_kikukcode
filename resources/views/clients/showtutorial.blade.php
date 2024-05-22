@@ -2,7 +2,7 @@
 @section('title', $tutorial->title)
 @section('description', $tutorial->description)
 @section('image', asset('storage/'.$tutorial->image))
-@section('url', 'https://kikukcode.com/tutorial/'.$tutorial->slug)
+@section('url', 'https://kikukcode.com/tutorial'.$tutorial->slug)
 @section('content')
 <main class="max-w-7xl mx-auto md:mt-[50px] mt-[30px]">
   <section class="p-8 md:h-[300px] h-[200px] flex flex-col md:justify-center ">
@@ -54,7 +54,7 @@
     </article>
     <aside class="lg:block hidden pb-6 lg:pb-12 md:w-1/3 w-1/2 self-start sticky top-28 space-y-8">
       <div class="bg-white rounded-lg p-5">
-        <h3 class="text-xl font-poppins text-gray-700">Artikel Terkait</h3>
+        <h3 class="text-xl font-poppins text-gray-700">Tutorial Terkait</h3>
         <div class="mt-5">
           @foreach ($related as $r )
           <a href="{{ route('tutorial.show', $r->slug) }}" class="flex items-center p-2 hover:bg-gray-100 rounded-md">

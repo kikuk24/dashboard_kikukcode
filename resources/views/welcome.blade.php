@@ -100,12 +100,12 @@
 </div>
 <div class="mt-4 rounded-lg">
     <div class="line-clamp-1 text-lg font-medium text-foreground">
-        <a href="/">{{ $t->title }}</a>
+<a href="{{ route('tutorial.show', $t->slug)}}">{{ $t->title }}</a>
     </div>
 <div class="mb-4 mt-2 line-clamp-2 text-sm text-muted-foreground">{{ $t->description }}
                         </div>
 <div class="flex items-center justify-between">
-    <a href="/"
+<a href="{{ route('tutorial.show', $t->slug) }}"
         class="inline-flex items-center border-transparent rounded-full border transition-colors focus:outline-none bg-blue-500/15 text-blue-700 group-data-[hover]:bg-blue-500/25 dark:text-blue-400 dark:group-data-[hover]:bg-blue-500/25 px-2 py-0.5 text-xs font-medium">{{
         $t->topics->name }}</a>
 </div>

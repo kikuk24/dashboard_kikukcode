@@ -56,7 +56,31 @@
       <div class="bg-white rounded-lg p-5">
         <h3 class="text-xl font-poppins text-gray-700">Artikel Terkait</h3>
         <div class="mt-5">
-          Coming Soon
+@foreach ($related as $r )
+          <a href="{{ route('post.show', $r->slug) }}" class="flex items-center p-2 hover:bg-gray-100 rounded-md">
+            <img src="{{asset('storage/'.$r->image)}}" alt="{{$r->title}}" class="w-10 h-10 object-cover rounded-full">
+            <div class="ml-4">
+              <p class="text-gray-500">{{$r->created_at->format('d M Y')}}</p>
+              <p class="text-sm">{{$r->title}}</p>
+            </div>
+          </a>
+          @endforeach
+          </div>
+          </div>
+          </aside>
+          
+          <aside class="lg:hidden">
+            <div class="mb-4">
+              <div class="space-y-8">
+                @foreach ($related as $r )
+                <a href="{{ route('tutorial.show', $r->slug) }}" class="flex items-center p-2 hover:bg-gray-100 rounded-md">
+                  <img src="{{asset('storage/'.$r->image)}}" alt="{{$r->title}}" class="w-10 h-10 object-cover rounded-full">
+                  <div class="ml-4">
+                    <p class="text-gray-500">{{$r->created_at->diffForHumans()}}</p>
+                    <p class="text-sm">{{$r->title}}</p>
+                  </div>
+                </a>
+                @endforeach
         </div>
       </div>
     </aside>
