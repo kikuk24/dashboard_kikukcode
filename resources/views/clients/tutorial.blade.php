@@ -1,12 +1,13 @@
 @extends('clients.layouts.main')
-@section('title', 'Berbagi Informasi Mengenai Teknologi')
-@section('url','/artikel')
+@section('title', 'Nikmati Tutorial Coding Bersama Kikuk Code')
+@section('url','/tutorial')
 @section('content')
 <section class="max-w-7xl mx-auto mt-[100px]">
   <div class="xl:max-w-7xl lg:px-8 mx-auto px-4 sm:px-6 md:px-4 lg:max-w-6xl">
     <div class="flex flex-col">
       <div class="flex-1 max-w-xl">
-        <h1 class="text-2xl font-bold tracking-tighter text-foreground sm:text-3xl lg:text-5xl">Semua Kategori</h1>
+        <h1 class="text-2xl font-bold tracking-tighter text-foreground sm:text-3xl lg:text-5xl">{{Request::segment(2)}}
+        </h1>
       </div>
       <div class="mt-4 lg:mt-6">
         <div class="sm:hidden block"><button
@@ -21,7 +22,7 @@
         <div class="hidden sm:flex max-w-2xl overflow-x-auto hide-scroll items-center gap-x-6">
           <a class="block whitespace-nowrap pt-2 tracking-tight pb-1.5 border-b-2 gap-x-2 border-transparent text-muted-foreground"
             href="/artikel">All</a>
-          @foreach ($categories as $c )
+          @foreach ($topic as $c )
           <a class="block whitespace-nowrap pt-2 tracking-tight pb-1.5 border-b-2 gap-x-2 border-transparent text-muted-foreground"
             href="{{ route('category.show', $c->slug)}}">{{ $c->name }}</a>
           @endforeach
@@ -34,34 +35,34 @@
 <section class="max-w-7xl mx-auto mt-[50px] px-4">
   <div class="max-w-7xl mx-auto">
     <div class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-3 lg:gap-x-20 lg:gap-y-24">
-      @foreach ($posts as $post)
+      @foreach ($tutorials as $tutorial)
       <div class="overflow-hidden bg-white rounded-lg">
         <div
           class="ring-1 ring-foreground/10 grid place-content-center overflow-hidden rounded-[0.60rem] font-mono text-sm text-accent-foreground">
-          <a href="{{ route('post.show', $post->slug)}}">
-<img src="{{asset('storage/'.$post->image)}}" alt="{{$post->title}}" class="object-cover aspect-video" width="100%"
-              height="100%">
+          <a href="{{ route('tutorial.show', $tutorial->slug)}}">
+            <img src="{{asset('storage/'.$tutorial->image)}}" alt="{{$tutorial->title}}"
+              class="object-cover aspect-video" width="100%" height="100%">
           </a>
         </div>
         <div class="mt-4 rounded-lg">
           <div class="line-clamp-1 text-lg font-medium text-foreground">
-            <a href="{{ route('post.show', $post->slug)}}">{{ $post->title }}</a>
+            <a href="{{ route('tutorial.show', $tutorial->slug)}}">{{ $tutorial->title }}</a>
           </div>
           <div class="mb-4 mt-2 line-clamp-2 text-sm text-muted-foreground">
-            {{ $post->description }}
+            {{ $tutorial->description }}
           </div>
           <div class="flex items-center justify-between">
-            <a href="{{route('category.show', $post->category->slug)}}"
+            <a href="{{route('category.show', $tutorial->topics->slug)}}"
               class="inline-flex items-center border-transparent rounded-full border transition-colors focus:outline-none bg-blue-500/15 text-blue-700 group-data-[hover]:bg-blue-500/25 dark:text-blue-400 dark:group-data-[hover]:bg-blue-500/25 px-2 py-0.5 text-xs font-medium">{{
-              $post->category->name }}</a>
+              $tutorial->topics->name }}</a>
           </div>
         </div>
       </div>
       @endforeach
-</div>
-<div class="mt-10 gap-2">
-  {{ $posts->links() }}
-</div>
+    </div>
+    <div class="mt-10 gap-2">
+      {{ $tutorials->links() }}
+    </div>
   </div>
 </section>
 

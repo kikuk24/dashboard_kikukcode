@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eksplorasi Belajar Coding Bersama | Kikuk Code</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1477599127787462"
+    crossorigin="anonymous"></script>
 <script type="application/id+json">
     {
     "@context": "https://schema.org",
@@ -112,7 +114,7 @@
 @endforeach
 </div>
                 </div>
-<a href="{{route('client.posts')}}" class="text-center block text-lg mt-4 font-bold hover:text-accent">
+<a href="{{route('tutorial')}}" class="text-center block text-lg mt-4 font-bold hover:text-accent">
     Lihat Semua <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="inline"
         height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
         <path

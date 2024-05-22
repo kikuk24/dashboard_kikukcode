@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Posts;
+use App\Models\Topics;
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
-use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\Tags\Url;
 
 class HomeController extends Controller
 {
@@ -23,26 +23,18 @@ class HomeController extends Controller
 
     public function sitemap()
     {
-        $sitemap = Sitemap::create()
-            ->add(Url::create('/'))
-            ->add(Url::create('/artikel'));
+        $post = Posts::all();
+        $tutorial = Tutorial::all();
+        $categories = Category::all();
+        $topics = Topics::all();
+        $data = [
+            'posts' => $post,
+            'tutorials' => $tutorial,
+            'categories' => $categories,
+            'topics' => $topics
+        ];
 
-        $posts = Posts::all();
-
-        foreach ($posts as $post) {
-            $sitemap
-                ->add(Url::create('/artikel/' . $post->slug));
-        }
-
-        $tutorials = Tutorial::all();
-
-        foreach ($tutorials as $tutorial) {
-            $sitemap
-                ->add(Url::create('/tutorial/' . $tutorial->slug));
-        }
-        $sitemap->writeToFile(public_path('sitemap.xml'));
-
-        return response()->download(public_path('sitemap.xml'));
+        return response()->view('sitemap', $data, 200)->header('Content-Type', 'text/xml');
 
     }
 }

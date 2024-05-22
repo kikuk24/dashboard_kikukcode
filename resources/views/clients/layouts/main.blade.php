@@ -13,6 +13,9 @@
   <meta property="og:description" content=@yield('description')>
   <meta property="og:image" content=@yield('image')>
   <meta property="og:url" content="@yield('url')">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1477599127787462"
+  crossorigin="anonymous"></script>
 <link rel="canonical" href="@yield('url')">
 <script type="application/id+json">
   {

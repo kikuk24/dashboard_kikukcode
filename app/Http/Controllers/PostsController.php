@@ -36,9 +36,12 @@ class PostsController extends Controller
     public function showPost($slug)
     {
         $posts = Posts::with('user', 'category')->where('slug', $slug)->first();
+        $related = Posts::with('user', 'category')->where('category_id', $posts->category_id)->where('id', '!=', $posts->id)->latest()->paginate(3);
         $data = [
-            'post' => $posts
+            'post' => $posts,
+            'related' => $related
         ];
+        $posts->increment('views');
 
         return view('clients.showposts', $data);
     }
@@ -47,6 +50,9 @@ class PostsController extends Controller
     {
         $category = Category::where('slug', $slug)->first();
         $posts = Posts::with('user', 'category')->where('category_id', $category->id)->latest()->paginate(6);
+        if (!$category || !$posts) {
+            return redirect()->back()->with('error', 'Posts not found');
+        }
         $data = [
             'category' => $category,
             'posts' => $posts

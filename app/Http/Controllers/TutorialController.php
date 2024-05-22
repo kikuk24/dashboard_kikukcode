@@ -22,6 +22,41 @@ class TutorialController extends Controller
         ], 200);
     }
 
+    public function getTutorial()
+    {
+        $tutorials = Tutorial::with('topics')->latest()->paginate(6);
+        $topics = Topics::all();
+        $data = [
+            'tutorials' => $tutorials,
+            'topic' => $topics
+        ];
+        return view('clients.tutorial', $data);
+    }
+
+    public function showtutorial($slug)
+    {
+        $tutorial = Tutorial::with('user', 'topics')->where('slug', $slug)->first();
+        $related = Tutorial::with('topics')->where('topics_id', $tutorial->topics_id)->where('id', '!=', $tutorial->id)->latest()->limit(4)->get();
+        $data = [
+            'tutorial' => $tutorial,
+            'related' => $related
+        ];
+        $tutorial->increment('views');
+        return view('clients.showtutorial', $data);
+    }
+
+    public function tutorialsByTopics($slug)
+    {
+        $topic = Topics::where('slug', $slug)->first();
+        $tutorials = Tutorial::with('topics')->where('topics_id', $topic->id)->latest()->paginate(6);
+        $data = [
+            'topic' => $topic,
+            'tutorials' => $tutorials
+        ];
+
+        return view('clients.tutorial', $data);
+    }
+
     public function tutorialsByTopic($slug)
     {
         $topic = Topics::where('slug', $slug)->first();

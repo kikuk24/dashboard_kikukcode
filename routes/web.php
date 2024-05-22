@@ -87,3 +87,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/artikel', [PostsController::class, 'getPosts'])->name('client.posts');
 Route::get('/artikel/{slug}', [PostsController::class, 'showPost'])->name('post.show');
 Route::get('/category/{slug}', [PostsController::class, 'postsByCategories'])->name('category.show');
+
+Route::get('/tutorial', [TutorialController::class, 'getTutorial'])->name('tutorial');
+Route::get('/tutorial/{slug}', [TutorialController::class, 'showtutorial'])->name('tutorial.show');
+Route::get('/topic/{slug}', [TutorialController::class, 'getTutorial'])->name('topic.show');
+Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
