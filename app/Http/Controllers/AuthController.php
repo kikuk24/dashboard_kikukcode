@@ -33,7 +33,7 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
         if (Auth::attempt($request->only('email','password'))){
-            return redirect('/')->with('success', 'Login Successful');
+            return redirect()->route('dashboard.index')->with('success', 'Login Successful');
         }
         return redirect('/login')->with('error', 'Login Failed');
     }
