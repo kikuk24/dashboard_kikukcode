@@ -1,5 +1,7 @@
 @extends('clients.layouts.main')
 @section('title', 'Nikmati Tutorial Coding Bersama Kikuk Code')
+@section('description', 'Nikmati Tutorial Coding Bersama Kikuk Code')
+@section('image','https://kikukcode.com/storage/img/og.png')
 @section('url','/tutorial')
 @section('content')
 <section class="max-w-7xl mx-auto mt-[100px]">

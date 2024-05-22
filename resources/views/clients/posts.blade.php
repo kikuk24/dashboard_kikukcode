@@ -1,5 +1,6 @@
 @extends('clients.layouts.main')
 @section('title', 'Berbagi Informasi Mengenai Teknologi')
+@section('description', 'Berbagi Informasi Mengenai Teknologi')
 @section('url','/artikel')
 @section('content')
 <section class="max-w-7xl mx-auto mt-[100px]">

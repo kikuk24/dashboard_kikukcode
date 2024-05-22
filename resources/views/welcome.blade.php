@@ -2,9 +2,45 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TCG6MP9C4P"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-TCG6MP9C4P');
+</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eksplorasi Belajar Coding Bersama | Kikuk Code</title>
+<meta name="description" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
+<meta name="author" content="kikuk code">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
+<meta property="og:description" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
+<meta property="og:image" content="https://kikukcode.com/storage/img/og.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="kikuk code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kikukcode">
+<meta name="twitter:creator" content="@kikukcode">
+<meta name="twitter:title" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
+<meta name="twitter:description" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
+<meta name="twitter:image" content="https://kikukcode.com/storage/img/og.png">
+<meta property="og:url" content="https://kikukcode.com">
+<meta name="copyright" content="kikuk code">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://kikukcode.com">
+<!-- Google Tag Manager -->
+<script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5X7RNZ42');
+</script>
+<!-- End Google Tag Manager -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1477599127787462"
     crossorigin="anonymous"></script>
 <script type="application/id+json">
@@ -24,9 +60,22 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 <script src="https://cdn.tailwindcss.com"></script>
+{{-- Google Tag Manager --}}
+<script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5X7RNZ42');
+</script>
+{{-- End Google Tag Manager --}}
     </head>
 
 <body class="antialiased">
+{{-- Google Tag Manager (noscript) --}}
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5X7RNZ42" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+{{-- End Google Tag Manager (noscript) --}}
 @component('clients.components.navbar')
 @endcomponent
 <section class="w-full py-10">
