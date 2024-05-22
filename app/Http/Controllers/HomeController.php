@@ -40,6 +40,7 @@ class HomeController extends Controller
             $sitemap
                 ->add(Url::create('/tutorial/' . $tutorial->slug)->setPriority(0.6));
         }
-        $sitemap->writeToFile(public_path('/sitemap.xml'));
+        $sitemap->writeToFile(public_path('sitemap.xml'));
+
     }
 }
