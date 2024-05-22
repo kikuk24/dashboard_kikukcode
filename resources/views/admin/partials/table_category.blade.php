@@ -31,7 +31,7 @@
                                 <td>{{ $data->name }}</td>
                                 <td>{{ $data->slug }}</td>
                                 <td class="d-flex">
-                                    <a href="/category/edit/{{ $data->id }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+<a href="{{ route('category.edit', $data->id)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                     <form action='{{ route('category.destroy', $data->id)}}' method="post">
                                         @csrf
                                         @method('DELETE')

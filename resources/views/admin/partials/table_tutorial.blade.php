@@ -2,7 +2,7 @@
     <div class="card-header py-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h6 class="m-0 font-weight-bold text-primary ">Data tutorial</h6>
-            <a href="/add/artikel" class="btn btn-info ml-2 mt-2"><i
+<a href="{{route('add.tutorial')}}" class="btn btn-info ml-2 mt-2"><i
                     class="fas fa-plus"></i>
                 Tambah</a>
         </div>

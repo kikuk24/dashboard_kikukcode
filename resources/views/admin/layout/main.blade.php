@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/">
+<a class="nav-link" href="{{route('dashboard.index')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -67,9 +67,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Artikel</h6>
-                        <a class="collapse-item" href="/add/artikel">Buat</a>
-                        <a class="collapse-item" href="/artikel">Artkel List</a>
-                        <a class="collapse-item" href="/category">Category</a>
+<a class="collapse-item" href="{{route('posts.store')}}">Buat</a>
+<a class="collapse-item" href="{{route('dashboard.posts')}}">Artkel List</a>
+<a class="collapse-item" href="{{route('dashboard.categories')}}">Category</a>
                     </div>
                 </div>
             </li>
@@ -86,8 +86,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tutorial</h6>
                         <a class="collapse-item" href="{{ route('add.tutorial') }}">Buat</a>
-                        <a class="collapse-item" href="/tutorial">List</a>
-                        <a class="collapse-item" href="/topic">Topic</a>
+<a class="collapse-item" href="{{route('dashboard.tutorial')}}">List</a>
+                        <a class="collapse-item" href="{{route('dashboard.topics')}}">Topic</a>
                         <a class="collapse-item" href="#">Other</a>
                     </div>
                 </div>
