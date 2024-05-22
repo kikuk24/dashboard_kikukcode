@@ -13,6 +13,20 @@
   <meta property="og:description" content=@yield('description')>
   <meta property="og:image" content=@yield('image')>
   <meta property="og:url" content="@yield('url')">
+<link rel="canonical" href="@yield('url')">
+<script type="application/id+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://kikukcode.com",
+    "name": "kikuk code",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://kikukcode.com?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>
   <link rel="stylesheet" href="{{asset('storage/css/app.css')}}">
   <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" type="image/x-icon">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

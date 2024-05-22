@@ -5,7 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eksplorasi Belajar Coding Bersama | Kikuk Code</title>
-
+<script type="application/id+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://kikukcode.com",
+    "name": "kikuk code",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://kikukcode.com?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -80,7 +92,7 @@
             <div
                 class="ring-1 ring-foreground/10 grid place-content-center overflow-hidden rounded-[0.60rem] font-mono text-sm text-accent-foreground">
                 <a href="/">
-                    <img src="https://m.kikukcode.com/storage/artikel/tantangan-dan-solusi-dalam-menguasai-keterampilan.jpg"
+<img src="{{asset('storage/'.$t->image)}}"
                         alt="{{$t->title}}" class="object-cover aspect-video">
                 </a>
 </div>
