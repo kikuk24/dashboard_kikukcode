@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IklanController;
@@ -33,6 +34,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Admin Routes
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/admin/comentar', [DashboardController::class, 'comments'])->name('dashboard.comments');
     // Artikel Routes
     Route::get('/admin/artikel', [DashboardController::class, 'getPosts'])->name('dashboard.posts');
     Route::get('/add/artikel', [DashboardController::class, 'formPost'])->name('dashboard.form-post');
@@ -92,3 +94,6 @@ Route::get('/tutorial', [TutorialController::class, 'getTutorial'])->name('tutor
 Route::get('/tutorial/{slug}', [TutorialController::class, 'showtutorial'])->name('tutorial.show');
 Route::get('/topic/{slug}', [TutorialController::class, 'getTutorial'])->name('topic.show');
 Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
+
+
+Route::post('/comment', [CommentsController::class, 'store'])->name('comments.store')->middleware('checkbadwords');

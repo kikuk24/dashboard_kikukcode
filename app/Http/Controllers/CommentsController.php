@@ -28,7 +28,14 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comments = Comments::create([
+            'posts_id' => $request->post_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'comment' => $request->comment
+        ]);
+
+        return redirect()->back()->with('success', 'Comment created successfully');
     }
 
     /**
@@ -60,6 +67,6 @@ class CommentsController extends Controller
      */
     public function destroy(Comments $comments)
     {
-        //
+        dd($comments);
     }
 }

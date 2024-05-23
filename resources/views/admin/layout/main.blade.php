@@ -70,6 +70,7 @@
 <a class="collapse-item" href="{{route('posts.store')}}">Buat</a>
 <a class="collapse-item" href="{{route('dashboard.posts')}}">Artkel List</a>
 <a class="collapse-item" href="{{route('dashboard.categories')}}">Category</a>
+<a class="collapse-item" href="{{route('dashboard.comments')}}">Comment</a>
                     </div>
                 </div>
             </li>

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comments;
 use App\Models\Iklan;
 use App\Models\Metas;
 use App\Models\Posts;
 use App\Models\Topics;
 use App\Models\Tutorial;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -126,6 +128,17 @@ class DashboardController extends Controller
         return view('admin.topic',$data);
     }
 
+    public function getViewsArtikel()
+    {
+        $currentYear = Carbon::now()->year;
+        $viewsArtikel = Posts::selectRaw('month(created_at) as month, sum(views) as views')->whereYear('created_at', $currentYear)->groupBy('month')->get();
+        $data = array_fill(0, 12, 0);
+        foreach ($viewsArtikel as $view) {
+            $data[$view->month - 1] = $view->views;
+        }
+        // dd($data);
+        return response()->json($data);
+    }
     public function getMeta(){
         $user = auth()->user();
         if(!$user){
@@ -153,6 +166,21 @@ class DashboardController extends Controller
             'iklan'=> $ads
         ];
         return view('admin.ads',$data);
+    }
+    public function comments()
+    {
+        $user = auth()->user();
+        if (!$user) {
+            return redirect('/login');
+        }
+        $comments = Comments::with('post')->get();
+        dd($comments);
+        $data = [
+            'title' => 'Comments',
+            'user' => $user,
+            'comments' => $comments
+        ];
+        return view('admin.comments', $data);
     }
 }
 

@@ -13,10 +13,12 @@ class Comments extends Model
         'name',
         'email',
         'comment',
+        'posts_id',
     ];
 
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Posts::class);
     }
+
 }

@@ -35,11 +35,13 @@ class PostsController extends Controller
 
     public function showPost($slug)
     {
-        $posts = Posts::with('user', 'category')->where('slug', $slug)->first();
+        $posts = Posts::with('user', 'category', 'comments')->where('slug', $slug)->first();
         $related = Posts::with('user', 'category')->where('category_id', $posts->category_id)->where('id', '!=', $posts->id)->latest()->paginate(3);
+        $comments = $posts->comments()->latest()->get();
         $data = [
             'post' => $posts,
-            'related' => $related
+            'related' => $related,
+            'comments' => $comments
         ];
         $posts->increment('views');
 
