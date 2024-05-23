@@ -39,7 +39,7 @@
                                 <td class="line-clamp-3">{{ $data->description }}</td>
                                 <td>{{ $data->views }}</td>
                                 <td class="d-flex">
-                                    <a href="/artikel/edit/{{ $data->id }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                    <a href="{{route('post.edit',$data->id)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                     <form action="{{ route('posts.destroy', $data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
