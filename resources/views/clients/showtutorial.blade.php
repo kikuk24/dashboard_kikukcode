@@ -43,7 +43,7 @@ href="https://www.facebook.com/sharer/sharer.php?u=https://kikukcode.com/tutoria
     <article class="w-full max-w-3xl shrink-0 lg:w-2/3 md:w-2/3">
       <figure class="my-5">
         <img src="{{asset('storage/'.$tutorial->image)}}" alt="{{$tutorial->title}}"
-          class="object-cover aspect-video rounded-md">
+class="object-cover aspect-video rounded-md" width="100%">
       </figure>
       <div class="body">
         {!! $tutorial->body !!}

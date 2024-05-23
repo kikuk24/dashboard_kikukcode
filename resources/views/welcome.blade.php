@@ -101,7 +101,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div
                         class="ring-1 ring-foreground/10 grid place-content-center overflow-hidden rounded-[0.60rem] font-mono text-sm text-accent-foreground">
                         <a href="{{ route('post.show', $post->slug)}}">
-<img src="{{asset('storage/'.$post->image)}}" alt="{{$post->title}}" width="100%" class="object-cover aspect-video">
+<img src="{{asset('storage/'.$post->image)}}" alt="{{$post->title}}" width="640px" height="360px"
+    class="object-cover aspect-video">
 </a>
                             </div>
                             <div class="mt-4 rounded-lg">
@@ -143,7 +144,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div
                     class="ring-1 ring-foreground/10 grid place-content-center overflow-hidden rounded-[0.60rem] font-mono text-sm text-accent-foreground">
                     <a href="/">
-<img src="{{asset('storage/'.$t->image)}} " width="100%" alt="{{$t->title}}" class="object-cover aspect-video">
+<img src="{{asset('storage/'.$t->image)}} " width="100%" alt="{{$t->title}}" class="object-cover aspect-video"
+    width="640px" height="360px">
 </a>
 </div>
 <div class="mt-4 rounded-lg">
