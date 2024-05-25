@@ -5,18 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Midtrans\Snap;
-use Midtrans\Config;
-
+use Illuminate\Support\Str;
 class TransactionController extends Controller
 {
-    public function __construct()
-    {
-        Config::$serverKey = config('midtrans.serverKey');
-        Config::$isProduction = config('midtrans.isProduction');
-        Config::$isSanitized = config('midtrans.isSanitized');
-        Config::$is3ds = config('midtrans.is3ds');
-    }
     /**
      * Display a listing of the resource.
      */
@@ -45,10 +38,10 @@ class TransactionController extends Controller
         $params = [
             'transaction_details' => [
                 'order_id' => Str::uuid(),
-                'gross_amount' => $request->input('gross_amount'),
+                'gross_amount' => $request->input('price'),
             ],
             'customer_details' => [
-                'name' => $request->input('first_name'),
+                'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'phone' => $request->input('phone'),
                 'message' => $request->input('message'),
@@ -67,11 +60,44 @@ class TransactionController extends Controller
             ],
             'vtweb' => [],
         ];
-        $snapToken = Snap::getSnapToken($params);
 
+        $auth = base64_encode(env('MIDTRANS_SERVER_KEY') . ':' . env('MIDTRANS_SERVER_KEY'));
 
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Basic ' . $auth,
+        ])->withOptions(['verify' => false])
+        ->post('https://app.sandbox.midtrans.com/snap/v1/transactions', $params);
 
-        return response()->json($snapToken);
+        $snapToken = $response['token'];
+
+        if ($response->successful()) {
+
+            // Simpannnn saja di databaseeeess
+            $id = $params['transaction_details']['order_id'];
+            $transaction = new Transaction();
+            $transaction->id = $id;
+            $transaction->name = $params['customer_details']['name'];
+            $transaction->email = $params['customer_details']['email'];
+            $transaction->phone = $params['customer_details']['phone'];
+            $transaction->message = $params['customer_details']['message'];
+            $transaction->product_id = $request->input('product_id');
+            $transaction->snap_token = $snapToken;
+            $transaction->status = 'pending';
+            $transaction->total = $params['transaction_details']['gross_amount'];
+            $transaction->save();
+
+            return response()->json([
+                'snap_token' => $snapToken,
+                'redirect_url' => $response['redirect_url'],
+            ]);
+        } else {
+
+            return response()->json($response);
+        }
+
+       
     }
 
     /**
