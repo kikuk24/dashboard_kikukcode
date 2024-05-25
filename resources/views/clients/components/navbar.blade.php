@@ -26,10 +26,11 @@
             href="{{route('home')}}">Home</a>
           </li>
           <li>
-          <a class="md:p-4 py-2 block hover:text-purple-400" href="#">Layanan</a>
+<a class="md:p-4 py-2 block hover:text-purple-400 {{Route::currentRouteName() == 'products.index' ? 'text-purple-400' : ''}}"
+  href="{{route('products.index')}}">Produk</a>
         </li>
         <li>
-          <a class="md:p-4 py-2 block hover:text-purple-400" href="#">Portofolio</a>
+<a class="md:p-4 py-2 block hover:text-purple-400" href="https://kikukafandi.my.id">Portofolio</a>
         </li>
         <li>
 <a class="md:p-4 py-2 block hover:text-purple-400 {{Route::currentRouteName() == 'tutorial' ? 'text-purple-400' : ''}}"

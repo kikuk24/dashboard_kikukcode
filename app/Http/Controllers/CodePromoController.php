@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CategoriesProducts;
+use App\Models\CodePromo;
 use Illuminate\Http\Request;
 
-class CategoriesProductsController extends Controller
+class CodePromoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class CategoriesProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CategoriesProducts $categoriesProducts)
+    public function show(CodePromo $codePromo)
     {
         //
     }
@@ -42,7 +42,7 @@ class CategoriesProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CategoriesProducts $categoriesProducts)
+    public function edit(CodePromo $codePromo)
     {
         //
     }
@@ -50,7 +50,7 @@ class CategoriesProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CategoriesProducts $categoriesProducts)
+    public function update(Request $request, CodePromo $codePromo)
     {
         //
     }
@@ -58,7 +58,7 @@ class CategoriesProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CategoriesProducts $categoriesProducts)
+    public function destroy(CodePromo $codePromo)
     {
         //
     }

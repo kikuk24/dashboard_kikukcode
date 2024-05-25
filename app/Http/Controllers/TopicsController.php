@@ -18,7 +18,6 @@ class TopicsController extends Controller
             'message' => 'success',
             'data' => $topics
         ], 200);
-
     }
 
     /**
@@ -52,7 +51,7 @@ class TopicsController extends Controller
             'status' => true,
             'message' => 'success',
             'data' => $topics
-        ], 200);        
+        ], 200);
     }
 
     /**

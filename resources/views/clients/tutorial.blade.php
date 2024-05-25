@@ -43,7 +43,7 @@
           class="ring-1 ring-foreground/10 grid place-content-center overflow-hidden rounded-[0.60rem] font-mono text-sm text-accent-foreground">
           <a href="{{ route('tutorial.show', $tutorial->slug)}}">
             <img src="{{asset('storage/'.$tutorial->image)}}" alt="{{$tutorial->title}}"
-              class="object-cover aspect-video" width="100%" height="100%">
+class="object-cover aspect-video" width="640px" height="360px">
           </a>
         </div>
         <div class="mt-4 rounded-lg">

@@ -40,8 +40,8 @@
         <div
           class="ring-1 ring-foreground/10 grid place-content-center overflow-hidden rounded-[0.60rem] font-mono text-sm text-accent-foreground">
           <a href="{{ route('post.show', $post->slug)}}">
-<img src="{{asset('storage/'.$post->image)}}" alt="{{$post->title}}" class="object-cover aspect-video" width="100%"
-              height="100%">
+<img src="{{asset('storage/'.$post->image)}}" alt="{{$post->title}}" class="object-cover aspect-video" width="640px"
+  height="360px">
           </a>
         </div>
         <div class="mt-4 rounded-lg">

@@ -46,7 +46,7 @@
           class="object-cover aspect-video rounded-md" width="100%">
       </figure>
       <div class="body">
-        {!! $post->body !!}
+{!! $content !!}
       </div>
       <div class="secret">
         <p>{{$post->description}}</p>

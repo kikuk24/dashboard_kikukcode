@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Products extends Model
+class Brands extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id'];
 
-    public function brands()
+    public function products()
     {
-        return $this->belongsTo(Brands::class);
+        return $this->hasMany(Products::class);
     }
 }

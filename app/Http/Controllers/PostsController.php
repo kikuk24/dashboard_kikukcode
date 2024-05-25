@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ShortCodeHelpers;
 use App\Models\Category;
 use App\Models\Posts;
 use Illuminate\Http\Request;
@@ -38,10 +39,12 @@ class PostsController extends Controller
         $posts = Posts::with('user', 'category', 'comments')->where('slug', $slug)->first();
         $related = Posts::with('user', 'category')->where('category_id', $posts->category_id)->where('id', '!=', $posts->id)->latest()->paginate(3);
         $comments = $posts->comments()->latest()->get();
+        $content = ShortCodeHelpers::parseShortCode($posts->body);
         $data = [
             'post' => $posts,
             'related' => $related,
-            'comments' => $comments
+            'comments' => $comments,
+            'content' => $content
         ];
         $posts->increment('views');
 

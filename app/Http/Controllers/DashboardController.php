@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brands;
 use App\Models\Category;
 use App\Models\Comments;
 use App\Models\Iklan;
 use App\Models\Metas;
 use App\Models\Posts;
+use App\Models\Products;
 use App\Models\Topics;
 use App\Models\Tutorial;
 use Carbon\Carbon;
@@ -181,6 +183,34 @@ class DashboardController extends Controller
             'comments' => $comments
         ];
         return view('admin.comments', $data);
+    }
+    public function brands()
+    {
+        $user = auth()->user();
+        if (!$user) {
+            return redirect('/login');
+        }
+        $brands = Brands::all();
+        $data = [
+            'title' => 'Brands',
+            'user' => $user,
+            'brands' => $brands
+        ];
+        return view('admin.brands.index', $data);
+    }
+    public function products()
+    {
+        $user = auth()->user();
+        if (!$user) {
+            return redirect('/login');
+        }
+        $products = Products::all();
+        $data = [
+            'title' => 'Products',
+            'user' => $user,
+            'products' => $products
+        ];
+        return view('admin.products.product', $data);
     }
 }
 

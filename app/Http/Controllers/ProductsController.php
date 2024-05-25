@@ -12,7 +12,12 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $products = Products::with('brands')->latest()->paginate(10);
+
+        $data = [
+            'products' => $products
+        ];
+        return view('clients.products.index', $data);
     }
 
     /**
@@ -37,6 +42,18 @@ class ProductsController extends Controller
     public function show(Products $products)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $products = Products::where('name', 'like', '%' . $search . '%')->get();
+
+        $data = [
+            'products' => $products
+        ];
+
+        return response()->json($data);
     }
 
     /**

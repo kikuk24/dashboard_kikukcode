@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\DashboardController;
@@ -8,7 +9,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IklanController;
 use App\Http\Controllers\MetasController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\TopicsController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/login',[UsersController::class,'login'])->name('login.index');
+Route::get('/login', [UsersController::class, 'login'])->name('login.index');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [UsersController::class, 'register'])->name('register.index');
 // Route::post('/register', [AuthController::class, 'register'])->name('register');
@@ -43,6 +46,14 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/artikel/edit/{id}', [PostsController::class, 'update'])->name('posts.update');
     Route::delete('/admin/artikel/delete/{id}', [PostsController::class, 'destroy'])->name('posts.destroy');
     Route::delete('/admin/artikel/delete_all', [PostsController::class, 'destroy_all'])->name('posts.destroy-all');
+
+    // Products Routes
+    Route::get('/admin/products', [DashboardController::class, 'products'])->name('products.index');
+    Route::get('/admin/products/add', [ProductsController::class, 'create'])->name('products.create');
+    Route::post('add/products', [ProductsController::class, 'store'])->name('products.store');
+    Route::get('/admin/products/edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
+    Route::put('/admin/products/edit/{id}', [ProductsController::class, 'update'])->name('products.update');
+    Route::delete('/admin/products/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
 
     // Category Routes
 
@@ -77,6 +88,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/meta/{id}', [DashboardController::class, 'destroyMeta'])->name('meta.destroy');
 
 
+
+    // Brands Routes
+    Route::get('/admin/brands', [DashboardController::class, 'brands'])->name('brands.index');
+    Route::post('add/brands', [BrandsController::class, 'store'])->name('brands.store');
+    Route::get('/admin/brands/edit/{id}', [BrandsController::class, 'edit'])->name('brands.edit');
+    Route::put('/admin/brands/edit/{id}', [BrandsController::class, 'update'])->name('brands.update');
+    Route::delete('/admin/brands/{id}', [BrandsController::class, 'destroy'])->name('brands.destroy');
+
+
     // Ads
     Route::get('/admin/ads', [DashboardController::class, 'ads'])->name('ads.index');
     Route::post('add/ads', [IklanController::class, 'store'])->name('ads.store');
@@ -97,3 +117,12 @@ Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
 
 
 Route::post('/comment', [CommentsController::class, 'store'])->name('comments.store')->middleware('checkbadwords');
+
+
+Route::get('shop/products/search/', [ProductsController::class, 'search'])->name('products.search');
+Route::get('shop/products', [ProductsController::class, 'index'])->name('products.index');
+Route::get('shop/products/{slug}', [ProductsController::class, 'show'])->name('product.show');
+
+Route::get('shop/products/buy/{slug}', [TransactionController::class, 'index'])->name('product.buy');
+
+Route::post('buy', [TransactionController::class, 'store'])->name('transaction.buy');
