@@ -1,7 +1,7 @@
 <footer class="bg-white">
     <div class="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
         <div class="sm:flex sm:items-center sm:justify-between">
-            <div class=""><img src="{{asset('storage/img/icon.png')}}" alt="Kikuk Code" class="w-[400px]"></div>
+<div class=""><img src="{{asset('storage/img/icon.png')}}" alt="Kikuk Code" class="" width="400px"></div>
             <ul class="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
                 <li><a href="/" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75"><span
                             class="sr-only">Facebook</span><svg stroke="currentColor" fill="currentColor"

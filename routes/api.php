@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MetasController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\TopicsController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TutorialController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,3 +40,4 @@ use Illuminate\Support\Facades\Route;
 // Route::get('tutorials/topic/{slug}',[TutorialController::class, 'tutorialsByTopic'])->name('api.tutorials.topic');
 
 Route::get('views', [DashboardController::class, 'getViewsArtikel'])->name('views');
+Route::post('buy', [TransactionController::class, 'store'])->name('transaction.buy');

@@ -43,7 +43,7 @@
     <article class="w-full max-w-3xl shrink-0 lg:w-2/3 md:w-2/3">
       <figure class="my-5">
         <img src="{{asset('storage/'.$post->image)}}" alt="{{$post->title}}"
-          class="object-cover aspect-video rounded-md" width="100%">
+class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
       </figure>
       <div class="body">
 {!! $content !!}
