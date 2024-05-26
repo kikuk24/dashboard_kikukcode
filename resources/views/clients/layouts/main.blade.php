@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head class="scroll-smooth">
+  <script src="https://alwingulla.com/88/tag.min.js" data-zone="68548" async data-cfasync="false"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCG6MP9C4P"></script>
 <script>

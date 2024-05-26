@@ -3,6 +3,7 @@
 
 <head>
 <!-- Google tag (gtag.js) -->
+<script src="https://alwingulla.com/88/tag.min.js" data-zone="68548" async data-cfasync="false"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCG6MP9C4P"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
