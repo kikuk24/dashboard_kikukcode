@@ -62,11 +62,11 @@
                 <ul class="mt-6 space-y-4 text-sm">
                     <li><a class="text-gray-700 transition hover:opacity-75" href="/">Home</a></li>
                     <li><a class="text-gray-700 transition hover:opacity-75" href="/layanan">Layanan</a></li>
-                    <li><a class="text-gray-700 transition hover:opacity-75" href="/portofolio">Portofolio</a>
+<li><a class="text-gray-700 transition hover:opacity-75" href="https://www.kikukafandi.my.id/">Portofolio</a>
                     </li>
                     <li><a class="text-gray-700 transition hover:opacity-75" href="/artikel">Artikel</a></li>
                     <li><a class="text-gray-700 transition hover:opacity-75" href="/tutorial">Tutorial</a></li>
-                    <li><a class="text-gray-700 transition hover:opacity-75" href="/contact">Contact</a></li>
+<li><a class="text-gray-700 transition hover:opacity-75" href="/">Contact</a></li>
                 </ul>
             </div>
             <div>

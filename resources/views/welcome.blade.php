@@ -33,6 +33,7 @@
     <meta name="copyright" content="kikuk code">
     <meta name="googlebot" content="index, follow">
 <link rel="canonical" href="https://www.kikukcode.com/">
+<link rel="shortcut icon" href="{{asset('storage/img/favicon.ico')}}" type="image/x-icon">
     <!-- Google Tag Manager -->
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

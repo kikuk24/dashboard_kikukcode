@@ -39,7 +39,7 @@
       </div>
     </div>
   </section>
-  <section class="p-8 md:mt-[0px] mt-[30px]  flex flex-col md:flex-row lg:flex-row gap-5">
+<section class="p-8 md:mt-[0px] mt-[30px] flex flex-col md:flex-row lg:flex-row gap-5">
     <article class="w-full max-w-3xl shrink-0 lg:w-2/3 md:w-2/3">
       <figure class="my-5">
         <img src="{{asset('storage/'.$post->image)}}" alt="{{$post->title}}"
@@ -53,7 +53,7 @@ class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
 <p>{{$post->keywords}}</p>
       </div>
     </article>
-    <aside class="lg:block hidden pb-6 lg:pb-12 md:w-1/3 w-1/2 self-start sticky top-28 space-y-8">
+<aside class="lg:block md:block  hidden pb-6 lg:pb-12 md:w-1/3 w-1/2 self-start sticky top-28 space-y-8">
       <div class="bg-white rounded-lg p-5">
         <h3 class="text-xl font-poppins text-gray-700">Artikel Terkait</h3>
         <div class="mt-5">
@@ -68,8 +68,8 @@ class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
           @endforeach
 </div>
 </div>
-</aside>
-<section class="lg:hidden py-8 lg:py-16 antialiased">
+        </aside>
+<section class="lg:hidden md:hidden py-8 lg:py-16 antialiased">
   @if ($errors->any())
   <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
     <ul>
@@ -118,70 +118,70 @@ class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
     @endforeach
   </div>
 </section>
-<aside class="lg:hidden">
-  <div class="mb-4">
-    <div class="space-y-8">
-      @foreach ($related as $r )
-<a href="{{ route('post.show', $r->slug) }}" class="flex items-center p-2 hover:bg-gray-100 rounded-md">
-  <img src="{{asset('storage/'.$r->image)}}" alt="{{$r->title}}" class="w-10 h-10 object-cover rounded-full">
-  <div class="ml-4">
-    <p class="text-gray-500">{{$r->created_at->diffForHumans()}}</p>
-<p class="text-sm font-medium">{{$r->title}}</p>
-</div>
-</a>
-@endforeach
+<aside class="lg:hidden md:hidden">
+      <div class="mb-4">
+        <div class="space-y-8">
+          @foreach ($related as $r )
+          <a href="{{ route('post.show', $r->slug) }}" class="flex items-center p-2 hover:bg-gray-100 rounded-md">
+            <img src="{{asset('storage/'.$r->image)}}" alt="{{$r->title}}" class="w-10 h-10 object-cover rounded-full">
+            <div class="ml-4">
+              <p class="text-gray-500">{{$r->created_at->diffForHumans()}}</p>
+              <p class="text-sm font-medium">{{$r->title}}</p>
+            </div>
+          </a>
+          @endforeach
         </div>
       </div>
     </aside>
   </section>
-<section class="lg:block hidden py-8 lg:py-16 antialiased">
-  @if ($errors->any())
-  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-    <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-  @endif
-  <div class="max-w-2xl mx-auto px-4">
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comments</h2>
+<section class="lg:block md:block hidden py-8 lg:py-16 antialiased">
+    @if ($errors->any())
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
     </div>
-    <form action="{{ route('comments.store')}}" method="post" class="mb-6">
-      @csrf
-      <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
-        <input type="hidden" name="post_id" value="{{ $post->id }}">
-        <label for="name" class="sr-only">Name</label>
-        <input type="text" class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none px-2"
-          name="name" placeholder="Your name">
+    @endif
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comments</h2>
       </div>
-      <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
-        <label for="email" class="sr-only">Email</label>
-        <input type="email" class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none px-2"
-          name="email" placeholder="Your email">
-      </div>
-      <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
-        <label for="comment" class="sr-only">Your comment</label>
-        <textarea id="comment" name="comment" rows="6"
-          class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none resize-none px-2"
-          placeholder="Write a comment..."></textarea>
-      </div>
-      <button
-        class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200"
-        type="submit" type="submit">Kirim</button>
-    </form>
-    @foreach ($comments as $comment)
-    <article class="p-6 text-base">
-      <div class="flex items-center">
-        <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold">{{$comment->name}}</p>
-        <p class="text-sm text-gray-600 dark:text-gray-400">{{$comment->created_at->diffForHumans()}}</p>
-      </div>
-      <p class="text-gray-500">{{$comment->comment}}</p>
-    </article>
-    <hr class="my-4">
-    @endforeach
-  </div>
-</section>
+      <form action="{{ route('comments.store')}}" method="post" class="mb-6">
+        @csrf
+        <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
+          <input type="hidden" name="post_id" value="{{ $post->id }}">
+          <label for="name" class="sr-only">Name</label>
+          <input type="text" class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none px-2"
+            name="name" placeholder="Your name">
+        </div>
+        <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
+          <label for="email" class="sr-only">Email</label>
+          <input type="email" class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none px-2"
+            name="email" placeholder="Your email">
+        </div>
+        <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
+          <label for="comment" class="sr-only">Your comment</label>
+          <textarea id="comment" name="comment" rows="6"
+            class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none resize-none px-2"
+            placeholder="Write a comment..."></textarea>
+        </div>
+        <button
+          class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200"
+          type="submit" type="submit">Kirim</button>
+      </form>
+      @foreach ($comments as $comment)
+      <article class="p-6 text-base">
+        <div class="flex items-center">
+          <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold">{{$comment->name}}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{$comment->created_at->diffForHumans()}}</p>
+        </div>
+        <p class="text-gray-500">{{$comment->comment}}</p>
+      </article>
+      <hr class="my-4">
+      @endforeach
+    </div>
+  </section>
 </main>
 @endsection

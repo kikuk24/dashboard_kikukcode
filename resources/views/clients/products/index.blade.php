@@ -4,7 +4,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-4 lg:max-w-6xl">
 @if ($products->count() == 0)
   <div class="w-full">
-    <p class="text-center text-sm text-gray-500">Produk tidak ditemukan</p>
+<p class="text-center text-sm text-gray-500">Belum Ada Produk yang di Tambahkan</p>
   </div>
   @else
   <div class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-3 lg:gap-x-20 lg:gap-y-24">

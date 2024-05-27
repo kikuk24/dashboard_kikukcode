@@ -26,7 +26,7 @@
     href="{{route('products.index')}}">Produk</a>
         </li>
         <li>
-<a class="md:p-4 py-2 block hover:text-purple-400" href="https://kikukafandi.my.id">Portofolio</a>
+<a class="md:p-4 py-2 block hover:text-purple-400" href="https://www.kikukafandi.my.id/">Portofolio</a>
         </li>
         <li>
 <a class="md:p-4 py-2 block hover:text-purple-400 {{Route::currentRouteName() == 'tutorial' ? 'text-purple-400' : ''}}"
