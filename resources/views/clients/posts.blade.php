@@ -1,7 +1,7 @@
 @extends('clients.layouts.main')
 @section('title', 'Berbagi Informasi Mengenai Teknologi')
 @section('description', 'Berbagi Informasi Mengenai Teknologi')
-@section('url','/artikel')
+@section('url','https://www.kikukcode.com/artikel')
 @section('content')
 <section class="max-w-7xl mx-auto mt-[100px]">
   <div class="xl:max-w-7xl lg:px-8 mx-auto px-4 sm:px-6 md:px-4 lg:max-w-6xl">

@@ -19,20 +19,20 @@
     <meta name="author" content="kikuk code">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
-    <meta property="og:description" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
-    <meta property="og:image" content="https://kikukcode.com/storage/img/og.png">
+<meta property="og:description" content="Berbagi informasi dan pengetahuan seputar peradaban teknologi">
+    <meta property="og:image" content="https://www.kikukcode.com/storage/img/og.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="kikuk code">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@kikukcode">
     <meta name="twitter:creator" content="@kikukcode">
     <meta name="twitter:title" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
-    <meta name="twitter:description" content="Eksplorasi Belajar Coding Bersama | Kikuk Code">
-    <meta name="twitter:image" content="https://kikukcode.com/storage/img/og.png">
-    <meta property="og:url" content="https://kikukcode.com">
+<meta name="twitter:description" content="Berbagi informasi dan pengetahuan seputar peradaban teknologi">
+<meta name="twitter:image" content="https://www.kikukcode.com/storage/img/og.png">
+<meta property="og:url" content="https://www.kikukcode.com/">
     <meta name="copyright" content="kikuk code">
     <meta name="googlebot" content="index, follow">
-    <link rel="canonical" href="https://kikukcode.com">
+<link rel="canonical" href="https://www.kikukcode.com/">
     <!-- Google Tag Manager -->
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

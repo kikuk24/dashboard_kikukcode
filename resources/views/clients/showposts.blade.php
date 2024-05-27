@@ -2,7 +2,7 @@
 @section('title', $post->title)
 @section('description', $post->description)
 @section('image', asset('storage/'.$post->image))
-@section('url', 'https://kikukcode.com/artikel/'.$post->slug)
+@section('url', 'https://www.kikukcode.com/artikel/'.$post->slug)
 @section('content')
 <main class="max-w-7xl mx-auto md:mt-[50px] mt-[30px]">
   <section class="p-8 md:h-[300px] h-[200px] flex flex-col md:justify-center ">
