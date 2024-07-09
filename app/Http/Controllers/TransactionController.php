@@ -35,13 +35,24 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
+
+        $nama_lengkap = $request->input('name');
+        $namaArray = explode(" ", $nama_lengkap);
+
+        $namaDepan = $namaArray[0];
+
+        $namaBelakang = implode(" ", array_slice($namaArray, 1));
+
+
         $params = [
             'transaction_details' => [
                 'order_id' => Str::uuid(),
                 'gross_amount' => $request->input('price'),
             ],
             'customer_details' => [
-                'name' => $request->input('name'),
+                'name' => $nama_lengkap,
+                'first_name' => $namaDepan,
+                'last_name' => $namaBelakang,
                 'email' => $request->input('email'),
                 'phone' => $request->input('phone'),
                 'message' => $request->input('message'),
@@ -49,15 +60,18 @@ class TransactionController extends Controller
                 'products' => $request->input('product_name'),
             ],
             'enabled_payments' => [
+                'credit_card',
                 'gopay',
                 'bank_transfer',
-                'permata_va',
+                'echannel', 
                 'bca_va',
                 'bni_va',
                 'bri_va',
-                'mandiri_va',
+                'permata_va',
+                'other_va', 
                 'qris',
             ],
+
             'vtweb' => [],
         ];
 
@@ -88,10 +102,12 @@ class TransactionController extends Controller
             $transaction->total = $params['transaction_details']['gross_amount'];
             $transaction->save();
 
-            return response()->json([
-                'snap_token' => $snapToken,
-                'redirect_url' => $response['redirect_url'],
-            ]);
+
+            // return response()->json([
+            //     'snap_token' => $snapToken,
+            //     'redirect_url' => $response['redirect_url'],
+            // ]);
+            return redirect($response['redirect_url']);
         } else {
 
             return response()->json($response);
@@ -100,6 +116,29 @@ class TransactionController extends Controller
        
     }
 
+
+    public function callback(Request $request)
+    {
+        $serverKey = env('MIDTRANS_SERVER_KEY');
+        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+        if ($hashed == $request->signature_key) {
+            if ($request->transaction_status == "settlement") {
+                $order = Transaction::find($request->order_id);
+                $order->update(["status" => "success"]);
+            }
+        }
+    }
+
+    public function invoice($id)
+    {
+        $order = Transaction::find($id)->with('product')->first();
+        $now = now();
+        $data = [
+            'order' => $order, 
+            'now' => $now
+        ];
+        return view('clients.transactions.invoice', $data);
+    }
     /**
      * Display the specified resource.
      */

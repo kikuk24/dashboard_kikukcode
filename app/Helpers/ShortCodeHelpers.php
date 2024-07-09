@@ -25,8 +25,9 @@ class ShortCodeHelpers
           return '';
         }
 
-        $toc = '<div class="toc"><ul>';
+        $toc = '<div class="toc">';
         $toc .= '<h2 class="toc-title">Table of Contents</h2>';
+        $toc .= '<ul>';
         foreach ($matches as $match) {
           $level = $match[1];
           $title = strip_tags($match[2]);

@@ -13,7 +13,7 @@
                     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
                             class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
                 </div>
-                {{-- @include('admin.partials.table_artikel') --}}
+                @include('admin.products.table_produk')
             </div>
 
 

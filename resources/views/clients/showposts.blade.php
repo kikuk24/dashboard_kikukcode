@@ -5,6 +5,7 @@
 @section('url', 'https://www.kikukcode.com/artikel/'.$post->slug)
 @section('content')
 <main class="max-w-7xl mx-auto md:mt-[50px] mt-[30px]">
+
   <section class="p-8 md:h-[300px] h-[200px] flex flex-col md:justify-center ">
     <p class="text-gray-500">{{$post->created_at->diffForHumans()}}</p>
     <h1 class="md:text-3xl text-2xl font-bold md:font-extrabold font-poppins lg:pr-[300px]">{{$post->title}}</h1>
@@ -16,19 +17,20 @@
         class="inline-flex items-center border-transparent rounded-full border transition-colors focus:outline-none bg-blue-500/15 text-blue-700 group-data-[hover]:bg-blue-500/25 dark:text-blue-400 dark:group-data-[hover]:bg-blue-500/25 px-2 py-0.5 text-xs font-medium">{{$post->category->name}}</a>
       <div class="">
         <div class="w-full flex justify-between gap-5"><a
-            href="https://www.facebook.com/sharer/sharer.php?u=https://kikukcode.com/artikel/{{$post->slug}}"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://www.kikukcode.com/artikel/{{$post->slug}}"
             target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
               viewBox="0 0 320 512" class="text-[#4267B2]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
               </path>
-            </svg></a><a href="https://twitter.com/intent/tweet?url=https://kikukcode.com/artikel/{{$post->slug}}"
+            </svg></a>
+            <a href="https://twitter.com/intent/tweet?url=https://www.kikukcode.com/artikel/{{$post->slug}}"
             target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
               viewBox="0 0 512 512" class="text-[#1DA1F2]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
               </path>
-            </svg></a><a href="https://wa.me/?text=https://kikukcode.com/artikel/{{$post->slug}}" target="_blank"
+            </svg></a><a href="https://wa.me/?text=https://www.kikukcode.com/artikel/{{$post->slug}}" target="_blank"
             rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
               viewBox="0 0 448 512" class="text-[#25D366]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -39,86 +41,90 @@
       </div>
     </div>
   </section>
-<section class="p-8 md:mt-[0px] mt-[30px] flex flex-col md:flex-row lg:flex-row gap-5">
+  <section class="p-8 md:mt-[0px] mt-[30px] flex flex-col md:flex-row lg:flex-row gap-5">
     <article class="w-full max-w-3xl shrink-0 lg:w-2/3 md:w-2/3">
       <figure class="my-5">
         <img src="{{asset('storage/'.$post->image)}}" alt="{{$post->title}}"
-class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
+          class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
       </figure>
       <div class="body">
-{!! $content !!}
+        {!! $content !!}
       </div>
       <div class="secret">
         <p>{{$post->description}}</p>
-<p>{{$post->keywords}}</p>
+        <p>{{$post->keywords}}</p>
       </div>
+      {{-- <button id="openContactForm" class="bg-[#9727eb] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-7">
+        Subscribe Now
+      </button> --}}
     </article>
-<aside class="lg:block md:block  hidden pb-6 lg:pb-12 md:w-1/3 w-1/2 self-start sticky top-28 space-y-8">
+    <aside class="lg:block md:block  hidden pb-6 lg:pb-12 md:w-1/3 w-1/2 self-start sticky top-28 space-y-8">
       <div class="bg-white rounded-lg p-5">
         <h3 class="text-xl font-poppins text-gray-700">Artikel Terkait</h3>
         <div class="mt-5">
-@foreach ($related as $r )
+          @foreach ($related as $r )
           <a href="{{ route('post.show', $r->slug) }}" class="flex items-center p-2 hover:bg-gray-100 rounded-md">
             <img src="{{asset('storage/'.$r->image)}}" alt="{{$r->title}}" class="w-10 h-10 object-cover rounded-full">
             <div class="ml-4">
               <p class="text-gray-500">{{$r->created_at->format('d M Y')}}</p>
-<p class="text-sm font-medium">{{$r->title}}</p>
+              <p class="text-sm font-medium">{{$r->title}}</p>
             </div>
           </a>
           @endforeach
-</div>
-</div>
-        </aside>
-<section class="lg:hidden md:hidden py-8 lg:py-16 antialiased">
-  @if ($errors->any())
-  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-    <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-  @endif
-  <div class="max-w-2xl mx-auto px-4">
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comments</h2>
-    </div>
-    <form action="{{ route('comments.store')}}" method="post" class="mb-6">
-      @csrf
-      <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
-        <input type="hidden" name="post_id" value="{{ $post->id }}">
-        <label for="name" class="sr-only">Name</label>
-        <input type="text" class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none px-2"
-          name="name" placeholder="Your name">
+        </div>
+        </div>
+
+    </aside>
+    <section class="lg:hidden md:hidden py-8 lg:py-16 antialiased">
+      @if ($errors->any())
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
       </div>
-      <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
-        <label for="email" class="sr-only">Email</label>
-        <input type="email" class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none px-2"
-          name="email" placeholder="Your email">
+      @endif
+      <div class="max-w-2xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comments</h2>
+        </div>
+        <form action="{{ route('comments.store')}}" method="post" class="mb-6">
+          @csrf
+          <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
+            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <label for="name" class="sr-only">Name</label>
+            <input type="text" class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none px-2"
+              name="name" placeholder="Your name">
+          </div>
+          <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none px-2"
+              name="email" placeholder="Your email">
+          </div>
+          <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
+            <label for="comment" class="sr-only">Your comment</label>
+            <textarea id="comment" name="comment" rows="6"
+              class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none resize-none px-2"
+              placeholder="Write a comment..."></textarea>
+          </div>
+          <button
+            class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200"
+            type="submit" type="submit">Kirim</button>
+        </form>
+        @foreach ($comments as $comment)
+        <article class="p-6 text-base">
+          <div class="flex items-center">
+            <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold">{{$comment->name}}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{{$comment->created_at->diffForHumans()}}</p>
+          </div>
+          <p class="text-gray-500">{{$comment->comment}}</p>
+        </article>
+        <hr class="my-4">
+        @endforeach
       </div>
-      <div class="py-2 mb-4 rounded-lg rounded-t-lg border border-gray-200">
-        <label for="comment" class="sr-only">Your comment</label>
-        <textarea id="comment" name="comment" rows="6"
-          class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none resize-none px-2"
-          placeholder="Write a comment..."></textarea>
-      </div>
-      <button
-        class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200"
-        type="submit" type="submit">Kirim</button>
-    </form>
-    @foreach ($comments as $comment)
-    <article class="p-6 text-base">
-      <div class="flex items-center">
-        <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold">{{$comment->name}}</p>
-        <p class="text-sm text-gray-600 dark:text-gray-400">{{$comment->created_at->diffForHumans()}}</p>
-      </div>
-      <p class="text-gray-500">{{$comment->comment}}</p>
-    </article>
-    <hr class="my-4">
-    @endforeach
-  </div>
-</section>
-<aside class="lg:hidden md:hidden">
+    </section>
+    <aside class="lg:hidden md:hidden">
       <div class="mb-4">
         <div class="space-y-8">
           @foreach ($related as $r )
@@ -134,7 +140,7 @@ class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
       </div>
     </aside>
   </section>
-<section class="lg:block md:block hidden py-8 lg:py-16 antialiased">
+  <section class="lg:block md:block hidden py-8 lg:py-16 antialiased">
     @if ($errors->any())
     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
       <ul>
@@ -145,6 +151,7 @@ class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
     </div>
     @endif
     <div class="max-w-2xl mx-auto px-4">
+
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comments</h2>
       </div>
@@ -182,6 +189,12 @@ class="object-cover aspect-video rounded-md" width="100%" loading="lazy">
       <hr class="my-4">
       @endforeach
     </div>
+    @if (session('success'))
+    @component('clients.components.popup_success')
+    
+    @endcomponent
+    
+    @endif
   </section>
 </main>
 @endsection

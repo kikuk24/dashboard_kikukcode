@@ -41,3 +41,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('views', [DashboardController::class, 'getViewsArtikel'])->name('views');
 Route::post('buy', [TransactionController::class, 'store'])->name('transaction.buy');
+Route::post('/handling-konfirmasi', [TransactionController::class, 'callback'])->name('callback-transaksi');

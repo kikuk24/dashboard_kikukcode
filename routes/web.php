@@ -10,6 +10,7 @@ use App\Http\Controllers\IklanController;
 use App\Http\Controllers\MetasController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\SubscibersController;
 use App\Http\Controllers\TopicsController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TutorialController;
@@ -31,6 +32,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [UsersController::class, 'login'])->name('login.index');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [UsersController::class, 'register'])->name('register.index');
+Route::get('/invoice/{id}', [TransactionController::class, 'invoice'])->name('invoice');
+Route::post('/invoice/{id}', [TransactionController::class, 'invoice'])->name('invoice');
 // Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -54,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/products/edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
     Route::put('/admin/products/edit/{id}', [ProductsController::class, 'update'])->name('products.update');
     Route::delete('/admin/products/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
+    Route::delete('/admin/products/delete', [ProductsController::class, 'destroy_all'])->name('products.destroy.all');
 
     // Category Routes
 
@@ -119,10 +123,12 @@ Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
 Route::post('/comment', [CommentsController::class, 'store'])->name('comments.store')->middleware('checkbadwords');
 
 
-Route::get('shop/products/search/', [ProductsController::class, 'search'])->name('products.search');
-Route::get('shop/products', [ProductsController::class, 'index'])->name('products.index');
+Route::get('shop/products/search', [ProductsController::class, 'search'])->name('products.search');
+Route::get('shop/products', [ProductsController::class, 'index'])->name('products.client');
 Route::get('shop/products/{slug}', [ProductsController::class, 'show'])->name('product.show');
 
 Route::get('shop/products/buy/{slug}', [TransactionController::class, 'index'])->name('product.buy');
 
+
+Route::post('subscribe', [SubscibersController::class, 'store'])->name('subscribe.store');
 Route::post('buy', [TransactionController::class, 'store'])->name('transaction.buy');

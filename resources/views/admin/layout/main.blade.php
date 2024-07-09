@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-<a class="nav-link" href="{{route('dashboard.index')}}">
+                <a class="nav-link" href="{{ route('dashboard.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -67,28 +67,28 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Artikel</h6>
-<a class="collapse-item" href="{{route('posts.store')}}">Buat</a>
-<a class="collapse-item" href="{{route('dashboard.posts')}}">Artkel List</a>
-<a class="collapse-item" href="{{route('dashboard.categories')}}">Category</a>
-<a class="collapse-item" href="{{route('dashboard.comments')}}">Comment</a>
+                        <a class="collapse-item" href="{{ route('posts.store') }}">Buat</a>
+                        <a class="collapse-item" href="{{ route('dashboard.posts') }}">Artkel List</a>
+                        <a class="collapse-item" href="{{ route('dashboard.categories') }}">Category</a>
+                        <a class="collapse-item" href="{{ route('dashboard.comments') }}">Comment</a>
                     </div>
                 </div>
             </li>
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#products" aria-expanded="true"
-        aria-controls="products">
-        <i class="fas fa-fw fa-shopping-bag"></i>
-        <span>Product</span>
-    </a>
-    <div id="products" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Products</h6>
-            <a class="collapse-item" href="{{route('products.create')}}">Buat</a>
-            <a class="collapse-item" href="{{route('products.index')}}">Products List</a>
-            <a class="collapse-item" href="{{route('brands.index')}}">Brand</a>
-        </div>
-    </div>
-</li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#products"
+                    aria-expanded="true" aria-controls="products">
+                    <i class="fas fa-fw fa-shopping-bag"></i>
+                    <span>Product</span>
+                </a>
+                <div id="products" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Products</h6>
+                        <a class="collapse-item" href="{{ route('products.create') }}">Buat</a>
+                        <a class="collapse-item" href="{{ route('products.index') }}">Products List</a>
+                        <a class="collapse-item" href="{{ route('brands.index') }}">Brand</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -102,8 +102,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tutorial</h6>
                         <a class="collapse-item" href="{{ route('add.tutorial') }}">Buat</a>
-<a class="collapse-item" href="{{route('dashboard.tutorial')}}">List</a>
-                        <a class="collapse-item" href="{{route('dashboard.topics')}}">Topic</a>
+                        <a class="collapse-item" href="{{ route('dashboard.tutorial') }}">List</a>
+                        <a class="collapse-item" href="{{ route('dashboard.topics') }}">Topic</a>
                         <a class="collapse-item" href="#">Other</a>
                     </div>
                 </div>
@@ -124,7 +124,8 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Meta SEO Page</h6>
                         <a class="collapse-item" href="/settings">Settings</a>
@@ -160,7 +161,8 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-<img class="sidebar-card-illustration mb-2" src={{ asset('storage/img/undraw_rocket.svg') }} alt="...">
+                <img class="sidebar-card-illustration mb-2" src={{ asset('storage/img/undraw_rocket.svg') }}
+                    alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
                     and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
@@ -183,13 +185,13 @@
 
             const ofRead = new FileReader();
             ofRead.readAsDataURL(img[0].files[0]);
-            
+
             ofRead.addEventListener('load', function() {
 
                 let output = ofRead.result;
 
                 previews[0].setAttribute('src', output);
-                
+
             })
         }
     </script>

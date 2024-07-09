@@ -17,14 +17,15 @@ return new class extends Migration
             $table->string('slug');
             $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
             $table->longText('description');
+            $table->longText('meta_description');
             $table->string('cover');
             $table->string('image_1')->nullable();
             $table->string('image_2')->nullable();
             $table->string('image_3')->nullable();
             $table->string('image_4')->nullable();
             $table->boolean('is_published')->default(true);
-            $table->integer('original_price')->nullable();
-            $table->integer('discount_price')->nullable();
+            $table->integer('price')->nullable();
+            $table->integer('discount')->nullable();
             $table->string('stock')->nullable();
             $table->integer('views')->default(0);
             $table->softDeletes();

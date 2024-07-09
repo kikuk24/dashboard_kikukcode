@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\ShortCodeHelpers;
 use App\Models\Category;
 use App\Models\Posts;
+use App\Models\Viewers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
