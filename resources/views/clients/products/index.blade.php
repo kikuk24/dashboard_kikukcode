@@ -1,7 +1,7 @@
 @extends('clients.layouts.main')
 
 @if (!$query)
-@section('title', 'Produk')
+@section('title', 'Temukan Produk Digital dan Jasa yang Sesuai dengan Kebutuhan Anda!')
 @else
 @section('title', 'Hasil dari ' . $query)
 @endif

@@ -21,15 +21,15 @@
                     class="px-2 py-2 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-600">Tools</a>
                 <a href="#"
                     class="px-2 py-2 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-600">Aplikasi</a>
-                <a href="/"
-                    class="px-2 py-2 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-600">Back to Home</a>
+                <a href="/" class="px-2 py-2 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-600">Back
+                    to Home</a>
             </div>
 
             <div class="flex items-center space-x-4">
                 <div class="relative hidden md:block">
                     <form action="{{ route('products.search') }}">
 
-                        <input type="search" name="product"
+                        <input type="search" name="produk"
                             class="pl-10 pr-2 h-10 py-1 rounded-lg border border-gray-200 focus:border-gray-300 focus:outline-none focus:shadow-inner leading-none"
                             placeholder="Search">
                         <svg class="h-6 w-6 text-gray-300 ml-2 mt-2 stroke-current absolute top-0 left-0"
@@ -62,7 +62,7 @@
             <form action="{{ route('products.search') }}">
                 <input type="search"
                     class="mt-1 w-full pl-10 pr-2 h-10 py-1 rounded-lg border border-gray-200 focus:border-gray-300 focus:outline-none focus:shadow-inner leading-none"
-                    placeholder="Search" name="search">
+                    placeholder="Search" name="produk">
 
                 <svg class="h-6 w-6 text-gray-300 ml-2 mt-3 stroke-current absolute top-0 left-0"
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
